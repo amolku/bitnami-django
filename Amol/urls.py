@@ -20,5 +20,10 @@ from django.views.debug import default_urlconf
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cpy/', include('cpy.urls')),
+    url(r'^rest/', include('rest.urls')),
     url(r'^$', default_urlconf),
+]
+
+urlpatterns += [
+    url(r'^api-auth/', include('rest_framework.urls')),
 ]

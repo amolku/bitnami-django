@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<style type="text/css">
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+ }
+</style>
+</head>
+<body>
+  <div ng-cloak ng-controller="MyController">
+    {% verbatim %}
+    Hello {{greetMe}}!
+    {% endverbatim %}
+  </div>
+  <script src="http://code.angularjs.org/snapshot/angular.js"></script>
+
+  <script>
+    angular.module('myApp', [])
+      .controller('MyController', ['$scope', function ($scope) {
+        $scope.greetMe = 'World';
+      }]);
+
+    angular.element(document).ready(function() {
+      angular.bootstrap(document, ['myApp']);
+    });
+  </script>
+</body>
+</html>
